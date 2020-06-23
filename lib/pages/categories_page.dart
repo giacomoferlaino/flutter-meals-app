@@ -10,7 +10,7 @@ class CategoriesPage extends StatelessWidget {
         title: const Text('DeliMeal'),
       ),
       body: GridView(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(15),
         children: DUMMY_CATEGORIES
             .map((category) => CategoryItem(category.title, category.color))
             .toList(),
