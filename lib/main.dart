@@ -24,9 +24,11 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             )),
       ),
-      home: CategoriesPage(),
+      // home: CategoriesPage(),
+      initialRoute: '/', // optional, the default is '/' anyway
       routes: {
-        '/category-meals': (context) => CategoryMealsPage(),
+        '/': (context) => CategoriesPage(),
+        CategoryMealsPage.routeName: (context) => CategoryMealsPage(),
       },
     );
   }
