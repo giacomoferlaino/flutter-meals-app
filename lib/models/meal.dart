@@ -42,4 +42,12 @@ class Meal {
     @required this.isVegan,
     @required this.isVegetarian,
   });
+
+  String get complexityText {
+    return complexity.toString().split(".").last;
+  }
+
+  String get affordabilityText {
+    return affordability.toString().split(".").last;
+  }
 }
