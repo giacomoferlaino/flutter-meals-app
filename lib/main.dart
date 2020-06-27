@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/pages/page_not_found.dart';
 
 import './pages/categories_page.dart';
 import './pages/category_meals_page.dart';
@@ -31,6 +32,13 @@ class MyApp extends StatelessWidget {
         '/': (context) => CategoriesPage(),
         CategoryMealsPage.routeName: (context) => CategoryMealsPage(),
         MealDetailPage.routeName: (context) => MealDetailPage(),
+      },
+      // onGenerateRoute: (settings) {
+      //   print(settings.arguments);
+      //   return MaterialPageRoute(builder: (context) => CategoriesPage());
+      // },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (context) => PageNotFound());
       },
     );
   }
