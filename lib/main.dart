@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/pages/page_not_found.dart';
 
-import './pages/categories_page.dart';
 import './pages/category_meals_page.dart';
 import './pages/meal_detail_page.dart';
+import './pages/page_not_found.dart';
+import './pages/tabs_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       // home: CategoriesPage(),
       initialRoute: '/', // optional, the default is '/' anyway
       routes: {
-        '/': (context) => CategoriesPage(),
+        '/': (context) => TabsPage(),
         CategoryMealsPage.routeName: (context) => CategoryMealsPage(),
         MealDetailPage.routeName: (context) => MealDetailPage(),
       },
