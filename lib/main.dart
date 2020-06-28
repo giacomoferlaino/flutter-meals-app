@@ -4,6 +4,7 @@ import './pages/category_meals_page.dart';
 import './pages/meal_detail_page.dart';
 import './pages/page_not_found.dart';
 import './pages/tabs_page.dart';
+import './pages/filters_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,11 +28,12 @@ class MyApp extends StatelessWidget {
             )),
       ),
       // home: CategoriesPage(),
-      initialRoute: '/', // optional, the default is '/' anyway
+      initialRoute: TabsPage.routeName, // optional, the default is '/' anyway
       routes: {
-        '/': (context) => TabsPage(),
+        TabsPage.routeName: (context) => TabsPage(),
         CategoryMealsPage.routeName: (context) => CategoryMealsPage(),
         MealDetailPage.routeName: (context) => MealDetailPage(),
+        FiltersPage.routeName: (context) => FiltersPage(),
       },
       // onGenerateRoute: (settings) {
       //   print(settings.arguments);

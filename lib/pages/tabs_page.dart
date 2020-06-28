@@ -5,6 +5,8 @@ import '../pages/favorites_page.dart';
 import '../widgets/main_drawer.dart';
 
 class TabsPage extends StatefulWidget {
+  static const routeName = '/';
+
   @override
   _TabsPageState createState() => _TabsPageState();
 }
