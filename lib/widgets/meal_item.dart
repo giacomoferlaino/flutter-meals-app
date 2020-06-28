@@ -5,7 +5,7 @@ import '../pages/meal_detail_page.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
-  final Function removeItem;
+  // final Function removeItem;
 
   void selectMeal(BuildContext context) {
     Navigator.of(context)
@@ -15,12 +15,12 @@ class MealItem extends StatelessWidget {
     )
         .then((result) {
       if (result != null) {
-        removeItem(result);
+        // removeItem(result);
       }
     });
   }
 
-  MealItem(this.meal, this.removeItem);
+  MealItem(this.meal);
 
   @override
   Widget build(BuildContext context) {

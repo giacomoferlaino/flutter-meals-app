@@ -23,6 +23,7 @@ class _MyAppState extends State<MyApp> {
     'vegetarian': false,
   };
   List<Meal> _availableMeals = DUMMY_MEALS;
+  List<Meal> _favoriteMeals = [];
 
   void _setFilters(Map<String, bool> filtersData) {
     setState(() {
@@ -35,6 +36,24 @@ class _MyAppState extends State<MyApp> {
         return true;
       }).toList();
     });
+  }
+
+  void _toggleFavorite(String mealId) {
+    final existingIndex =
+        _favoriteMeals.indexWhere((meal) => meal.id == mealId);
+    if (existingIndex >= 0) {
+      setState(() {
+        _favoriteMeals.removeAt(existingIndex);
+      });
+      return;
+    }
+    setState(() {
+      _favoriteMeals.add(DUMMY_MEALS.firstWhere((meal) => meal.id == mealId));
+    });
+  }
+
+  bool _isMealFavorite(String mealId) {
+    return _favoriteMeals.any((meal) => meal.id == mealId);
   }
 
   @override
@@ -58,10 +77,11 @@ class _MyAppState extends State<MyApp> {
       // home: CategoriesPage(),
       initialRoute: TabsPage.routeName, // optional, the default is '/' anyway
       routes: {
-        TabsPage.routeName: (context) => TabsPage(),
+        TabsPage.routeName: (context) => TabsPage(_favoriteMeals),
         CategoryMealsPage.routeName: (context) =>
             CategoryMealsPage(_availableMeals),
-        MealDetailPage.routeName: (context) => MealDetailPage(),
+        MealDetailPage.routeName: (context) =>
+            MealDetailPage(_toggleFavorite, _isMealFavorite),
         FiltersPage.routeName: (context) => FiltersPage(_filters, _setFilters),
       },
       // onGenerateRoute: (settings) {
